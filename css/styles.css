@@ -52,10 +52,14 @@
    BASE
    ============================================== */
 
+html {
+  background: var(--navy);
+}
+
 body {
   font-family: var(--font-body);
   color: var(--text);
-  background: var(--white);
+  background: var(--navy);
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -181,15 +185,17 @@ h1, h2, h3, h4, h5 {
 
 .nav {
   position: fixed;
-  inset-block-start: 0;
-  inset-inline: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   height: var(--nav-height);
   z-index: 100;
   background: transparent;
   transition: background var(--t), box-shadow var(--t);
 }
 
-.nav.scrolled {
+.nav.scrolled,
+.nav.menu-open {
   background: var(--navy);
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.25);
 }
@@ -278,7 +284,7 @@ h1, h2, h3, h4, h5 {
   flex-direction: column;
   padding: 1.5rem var(--gutter);
   gap: 0.25rem;
-  transform: translateY(-110%);
+  transform: translateY(calc(-100% - var(--nav-height)));
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
@@ -333,16 +339,21 @@ h1, h2, h3, h4, h5 {
 
 .hero__bg {
   position: absolute;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   background-size: cover;
-  /*background-position: center calc(100% + 150px);*/
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .hero__overlay {
   position: absolute;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   background: radial-gradient(
     ellipse at top right,
     rgba(34, 197, 94, 0.18) 0%,
@@ -350,6 +361,12 @@ h1, h2, h3, h4, h5 {
     rgba(13, 36, 22, 0.82) 70%,
     rgba(13, 36, 22, 0.96) 100%
   );
+}
+
+@media (max-width: 767px) {
+  .hero__bg {
+    background-position: 65% center;
+  }
 }
 
 .hero__content {

@@ -21,6 +21,7 @@ function openMenu() {
   navDrawer.classList.add('open');
   navDrawer.setAttribute('aria-hidden', 'false');
   navOverlay.classList.add('open');
+  nav.classList.add('menu-open');
   document.body.style.overflow = 'hidden';
 }
 
@@ -30,6 +31,7 @@ function closeMenu() {
   navDrawer.classList.remove('open');
   navDrawer.setAttribute('aria-hidden', 'true');
   navOverlay.classList.remove('open');
+  nav.classList.remove('menu-open');
   document.body.style.overflow = '';
 }
 
