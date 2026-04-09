@@ -27,7 +27,7 @@
       font-family: 'Inter', sans-serif;
       color: var(--text);
       background: #fff;
-      font-size: 11px;
+      font-size: 12px;
       line-height: 1.5;
     }
 
@@ -125,6 +125,8 @@
       background: var(--green-dark);
       border-color: var(--green-dark);
       color: #fff;
+      display: flex;
+      flex-direction: column;
     }
     .card--accent {
       background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
@@ -193,6 +195,55 @@
 
 
 
+    /* ── MAIN CONTENT GRID ── */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 5fr 4fr;
+      gap: 12px;
+    }
+    .main-grid__stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .main-grid__stack .card {
+      flex: 1;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--green-dark);
+      border-radius: 10px;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      color: #fff;
+    }
+    .footer__left strong {
+      font-family: 'Outfit', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      display: block;
+      margin-bottom: 3px;
+    }
+    .footer__left p { font-size: 9.5px; color: rgba(255,255,255,0.65); margin-bottom: 5px; }
+    .footer__perks { display: flex; flex-direction: column; gap: 2px; }
+    .footer__perks li { list-style: none; font-size: 9px; color: var(--accent2); }
+    .footer__link {
+      background: var(--accent);
+      color: var(--green-dark);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 11px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
     /* ── CTA ── */
     .cta-box {
       background: linear-gradient(135deg, var(--green-dark) 0%, #1A3A28 100%);
@@ -260,107 +311,21 @@
       <div class="header__logo">Trivi<span>FC</span></div>
       <div class="header__tagline">
         <strong>Football Foundation Fundraising, Reimagined</strong>
-        Fans compete. Foundations thrive. Every entry fee goes straight to your community projects.
+        Fans compete. Foundations thrive. Every entry fee goes straight to your community.
       </div>
       <div class="header__badge">⚽ Now Onboarding UK Foundations</div>
     </div>
 
-    <!-- STATS -->
-    <div class="stats">
-      <div class="stats__item">
-        <span class="stats__num">£85,000+</span>
-        <span class="stats__label">raised by foundations</span>
-      </div>
-      <div class="stats__item">
-        <span class="stats__num">520+</span>
-        <span class="stats__label">tournaments run</span>
-      </div>
-      <div class="stats__item">
-        <span class="stats__num">32</span>
-        <span class="stats__label">club foundations</span>
-      </div>
-      <div class="stats__item">
-        <span class="stats__num">4.8★</span>
-        <span class="stats__label">avg foundation rating</span>
-      </div>
-    </div>
+    <!-- CONTENT GRID: Example card left, How It Works + Why Trivia stacked right -->
+    <div class="main-grid">
 
-    <!-- ROW 1: How It Works + Why Trivia -->
-    <div class="two-col">
-
-      <!-- How It Works -->
-      <div class="card">
-        <p class="section-label">Simple by design</p>
-        <p class="section-title">How It Works</p>
-        <div class="hiw">
-          <div class="hiw__step">
-            <div class="hiw__num">1</div>
-            <div>
-              <h4>Set Up a Trivia Tournament</h4>
-              <p>Your foundation picks a category — club legends, match history, Premier League knowledge — and chooses a prize fans will compete for: a signed shirt, match tickets, or a stadium tour.</p>
-            </div>
-          </div>
-          <div class="hiw__step">
-            <div class="hiw__num">2</div>
-            <div>
-              <h4>Your Fans Enter</h4>
-              <p>Share the trivia link (or QR code) through social channels and supporter groups. Fans pay a small entry fee, play the game, and battle up the live leaderboard.</p>
-            </div>
-          </div>
-          <div class="hiw__step">
-            <div class="hiw__num">3</div>
-            <div>
-              <h4>Community Wins</h4>
-              <p>The top scorer wins the club-chosen prize. Every entry fee goes directly to your foundation and community projects. Fans get a brilliant experience — your cause gets the funding.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Why Trivia -->
-      <div class="card">
-        <p class="section-label">The smart fundraising choice</p>
-        <p class="section-title">Why Trivia?</p>
-        <div style="display:flex;flex-direction:column;gap:8px;">
-          <div class="why-item">
-            <div class="why-icon why-icon--orange">❤️</div>
-            <div>
-              <h4>Fans Love to Compete</h4>
-              <p>Football supporters are passionate and competitive. A club-themed trivia tournament channels that energy into fundraising — they give because they want to win.</p>
-            </div>
-          </div>
-          <div class="why-item">
-            <div class="why-icon why-icon--blue">🔗</div>
-            <div>
-              <h4>Spreads Through Fan Networks</h4>
-              <p>Tournaments spread organically through supporter groups, club socials, and WhatsApp threads. More entries, more money, more community impact.</p>
-            </div>
-          </div>
-          <div class="why-item">
-            <div class="why-icon why-icon--green">🏅</div>
-            <div>
-              <h4>Club-Chosen Prizes</h4>
-              <p>Signed shirts, tickets, meet-and-greets, unique experiences — prizes only your club can offer, so fans can't get them anywhere else.</p>
-            </div>
-          </div>
-          <div class="why-item">
-            <div class="why-icon why-icon--purple">💷</div>
-            <div>
-              <h4>Fully Transparent Fundraising</h4>
-              <p>Every entry fee (minus a small management fee) goes directly to your foundation. Secure payments, funds released when the tournament closes.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ROW 2: Example Card -->
+      <!-- Left: Demo card -->
       <div class="card example-card">
         <p class="section-label">See it in action</p>
         <p class="section-title">What Your Fans Will See</p>
         <span class="tag">⚽ Club Legends Trivia</span>
         <h4>Manchester City FC: Legends Quiz</h4>
-        <p class="host">Hosted by <strong>Man City FC Foundation</strong> · Supporting community youth projects</p>
+        <p class="host">Hosted by <strong>Man City FC Foundation</strong> · Community youth projects</p>
         <p class="prize">🏅 Prize: Signed First-Team Shirt</p>
         <div class="meta-row">
           <div class="meta-item"><span class="val">£5</span><span class="lbl">Entry fee</span></div>
@@ -372,35 +337,101 @@
         </div>
         <div class="progress-bar"><div class="progress-fill"></div></div>
         <p style="font-size:9px;color:var(--green-light);font-weight:600;margin-bottom:6px;">£340 raised for community projects so far</p>
-        <p style="font-size:9px;color:var(--muted);font-style:italic;background:var(--bg-soft);border-radius:5px;padding:7px 10px;border-left:3px solid var(--accent);">"Which Manchester City player scored the title-winning goal in the final seconds of the 2011–12 season?"<br/><span style="color:var(--green-light);font-style:normal;font-weight:600;margin-top:3px;display:block;">B. Sergio Agüero ✓</span></p>
+        <p style="font-size:9.5px;color:var(--muted);font-style:italic;background:var(--bg-soft);border-radius:5px;padding:7px 10px;border-left:3px solid var(--accent);">"Which Man City player scored the title-winning goal in the final seconds of the 2011-12 season?"<br/><span style="color:var(--green-light);font-style:normal;font-weight:600;margin-top:3px;display:block;">B. Sergio Agüero ✓</span></p>
         <div style="margin-top:6px;display:flex;flex-direction:column;gap:4px;">
-          <div style="display:flex;gap:6px;align-items:center;font-size:9.5px;color:var(--muted);">
-            <span style="color:var(--green-light);">📊</span> Live leaderboard — fans see their ranking in real time
+          <div style="display:flex;gap:6px;align-items:center;font-size:10px;color:var(--muted);">
+            <span style="color:var(--green-light);">📊</span> Live leaderboard
           </div>
-          <div style="display:flex;gap:6px;align-items:center;font-size:9.5px;color:var(--muted);">
-            <span style="color:var(--green-light);">📱</span> Fully mobile-optimised — enter &amp; share from any phone, no app needed
+          <div style="display:flex;gap:6px;align-items:center;font-size:10px;color:var(--muted);">
+            <span style="color:var(--green-light);">📱</span> Mobile-optimised, no app needed
           </div>
-          <div style="display:flex;gap:6px;align-items:center;font-size:9.5px;color:var(--muted);">
-            <span style="color:var(--green-light);">🔒</span> Secure payments — funds released directly to your foundation
+          <div style="display:flex;gap:6px;align-items:center;font-size:10px;color:var(--muted);">
+            <span style="color:var(--green-light);">🔒</span> Secure payments, funds direct to your foundation
           </div>
         </div>
       </div>
 
-    <!-- CTA -->
-    <div class="cta-box">
-      <div>
-        <p class="cta-box__title">Bring the Quiz to <span>Your Club</span></p>
-        <p class="cta-box__sub">TriviFC is opening its doors to UK football club foundations. Register your interest and we'll be in touch.</p>
-        <ul class="cta-box__perks">
-          <li>✓ Priority onboarding when we launch</li>
-          <li>✓ Free first tournament setup (worth £25)</li>
-          <li>✓ Dedicated foundation support team</li>
+      <!-- Right: How It Works + Why Trivia stacked -->
+      <div class="main-grid__stack">
+
+        <div class="card">
+          <p class="section-label">Simple by design</p>
+          <p class="section-title">How It Works</p>
+          <div class="hiw">
+            <div class="hiw__step">
+              <div class="hiw__num">1</div>
+              <div>
+                <h4>Set Up a Tournament</h4>
+                <p>Pick a trivia category and a prize fans will compete for, like a signed shirt, match tickets, or a stadium tour.</p>
+              </div>
+            </div>
+            <div class="hiw__step">
+              <div class="hiw__num">2</div>
+              <div>
+                <h4>Your Fans Enter</h4>
+                <p>Share the link or QR code. Fans pay a small entry fee, play the quiz, and climb the live leaderboard.</p>
+              </div>
+            </div>
+            <div class="hiw__step">
+              <div class="hiw__num">3</div>
+              <div>
+                <h4>Community Wins</h4>
+                <p>The top scorer wins the prize. The entry fees goes directly to your foundation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <p class="section-label">The smart fundraising choice</p>
+          <p class="section-title">Why Trivia?</p>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div class="why-item">
+              <div class="why-icon why-icon--orange">❤️</div>
+              <div>
+                <h4>Fans Love to Compete</h4>
+                <p>Club-themed trivia channels supporter passion into fundraising. They enter because they want to win.</p>
+              </div>
+            </div>
+            <div class="why-item">
+              <div class="why-icon why-icon--blue">🔗</div>
+              <div>
+                <h4>Spreads Organically</h4>
+                <p>Tournaments travel through supporter groups and social channels, even without paid promotion.</p>
+              </div>
+            </div>
+            <div class="why-item">
+              <div class="why-icon why-icon--green">🏅</div>
+              <div>
+                <h4>Prizes Only You Can Offer</h4>
+                <p>Signed shirts, match tickets, meet-and-greets. Prizes no other fundraiser can match.</p>
+              </div>
+            </div>
+            <div class="why-item">
+              <div class="why-icon why-icon--purple">💷</div>
+              <div>
+                <h4>Fully Transparent</h4>
+                <p>Every entry fee goes to your foundation. Secure payments, funds released when the tournament closes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="footer__left">
+        <strong>Bring the Quiz to <span style="color:var(--accent);">Your Club</span></strong>
+        <p>TriviFC is opening its doors to UK football club foundations. Register your interest and we'll be in touch.</p>
+        <ul class="footer__perks">
+          <li>✓ Priority onboarding</li>
+          <li>✓ Free first tournament setup</li>
+          <li>✓ Dedicated foundation support</li>
         </ul>
       </div>
-      <div class="cta-box__right">
-        <span class="cta-box__url">trivifc.com/foundations</span>
-        <p class="cta-box__hint">Register your interest · Early access now open</p>
-      </div>
+      <a href="https://rkhur.st/trivifc" class="footer__link">Register Your Interest →</a>
     </div>
 
   </div>

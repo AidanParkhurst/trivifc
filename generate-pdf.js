@@ -124,8 +124,8 @@ async function renderPdf(browser, { viewportWidth, isMobile, outPath, label }) {
       .hero__overlay {
         background: linear-gradient(
           155deg,
-          rgba(10, 40, 24, 0.94) 0%,
-          rgba(10, 40, 24, 0.72) 100%
+          rgba(10, 40, 24, 0.78) 0%,
+          rgba(10, 40, 24, 0.58) 100%
         ) !important;
       }
       .marathons__track { animation-play-state: paused !important; }
