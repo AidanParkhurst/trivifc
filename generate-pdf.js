@@ -138,6 +138,15 @@ async function renderPdf(browser, { viewportWidth, isMobile, outPath, label }) {
         -webkit-backdrop-filter: none !important;
         background: rgba(15, 23, 42, 0.88) !important;
       }
+
+      /* Chromium's PDF renderer renders box-shadow blur as solid grey
+         rectangles. Strip shadows from cards and use a border instead. */
+      .example__card,
+      .testimonials__card,
+      .example__aside-icon {
+        box-shadow: none !important;
+        border: 1px solid var(--grey-200) !important;
+      }
     `,
   });
 
