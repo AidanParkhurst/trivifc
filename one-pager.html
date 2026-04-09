@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TriviFC – One-Pager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-dark:  #0D2416;
+      --green-mid:   #164D2A;
+      --green-light: #22703E;
+      --accent:      #F59E0B;
+      --accent2:     #34D399;
+      --text:        #0F172A;
+      --muted:       #64748B;
+      --border:      #E2E8F0;
+      --bg-soft:     #F8FAFC;
+    }
+
+    html, body {
+      width: 794px;          /* A4 @ 96 dpi */
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: #fff;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .page {
+      width: 794px;
+      padding: 28px 36px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      background: var(--green-dark);
+      border-radius: 10px;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .header__logo {
+      font-family: 'Outfit', sans-serif;
+      font-size: 26px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+    .header__logo span { color: var(--accent); }
+    .header__tagline {
+      color: rgba(255,255,255,0.75);
+      font-size: 10.5px;
+      max-width: 340px;
+      text-align: center;
+    }
+    .header__tagline strong { color: #fff; display: block; font-size: 13px; font-family: 'Outfit', sans-serif; font-weight: 700; margin-bottom: 2px; }
+    .header__badge {
+      background: var(--accent);
+      color: var(--green-dark);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      padding: 6px 12px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    /* ── STATS ROW ── */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+    .stats__item {
+      background: var(--green-dark);
+      border-radius: 8px;
+      padding: 10px 12px;
+      text-align: center;
+      color: #fff;
+    }
+    .stats__num {
+      font-family: 'Outfit', sans-serif;
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--accent);
+      display: block;
+      line-height: 1.1;
+    }
+    .stats__label {
+      font-size: 9.5px;
+      color: rgba(255,255,255,0.7);
+      margin-top: 2px;
+    }
+
+    /* ── TWO-COLUMN GRID ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .three-col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+    }
+    .card--dark {
+      background: var(--green-dark);
+      border-color: var(--green-dark);
+      color: #fff;
+    }
+    .card--accent {
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
+      border-color: var(--green-mid);
+      color: #fff;
+    }
+
+    /* ── SECTION LABELS ── */
+    .section-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--green-light);
+      margin-bottom: 4px;
+    }
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--green-dark);
+      margin-bottom: 8px;
+    }
+    .card--dark .section-label, .card--accent .section-label { color: var(--accent2); }
+    .card--dark .section-title, .card--accent .section-title { color: #fff; }
+
+    /* ── HOW IT WORKS ── */
+    .hiw { display: flex; flex-direction: column; gap: 6px; }
+    .hiw__step {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .hiw__num {
+      background: var(--accent);
+      color: var(--green-dark);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 11px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .hiw__step h4 { font-size: 10.5px; font-weight: 600; color: var(--green-dark); margin-bottom: 2px; }
+    .hiw__step p  { font-size: 9.5px; color: var(--muted); }
+
+    /* ── WHY CARDS ── */
+    .why-item { display: flex; gap: 8px; align-items: flex-start; }
+    .why-icon {
+      width: 22px; height: 22px; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 12px;
+    }
+    .why-icon--orange { background: #FEF3C7; }
+    .why-icon--blue   { background: #DBEAFE; }
+    .why-icon--green  { background: #D1FAE5; }
+    .why-icon--purple { background: #EDE9FE; }
+    .why-item h4 { font-size: 10.5px; font-weight: 600; margin-bottom: 2px; color: var(--text); }
+    .why-item p  { font-size: 9.5px; color: var(--muted); }
+
+    /* ── TESTIMONIALS ── */
+    .testimonial { padding-bottom: 6px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 6px; }
+    .testimonial:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .testimonial__stars { color: var(--accent); font-size: 10px; margin-bottom: 3px; }
+    .testimonial__quote { font-size: 9.5px; color: rgba(255,255,255,0.85); font-style: italic; margin-bottom: 5px; line-height: 1.45; }
+    .testimonial__author { font-size: 9px; color: rgba(255,255,255,0.55); }
+    .testimonial__author strong { color: rgba(255,255,255,0.85); display: inline; }
+
+    /* ── CTA ── */
+    .cta-box {
+      background: linear-gradient(135deg, var(--green-dark) 0%, #1A3A28 100%);
+      border-radius: 10px;
+      padding: 16px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      color: #fff;
+    }
+    .cta-box__title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .cta-box__title span { color: var(--accent); }
+    .cta-box__sub { font-size: 9.5px; color: rgba(255,255,255,0.7); max-width: 320px; }
+    .cta-box__perks { margin-top: 6px; display: flex; flex-direction: column; gap: 3px; }
+    .cta-box__perks li { list-style: none; font-size: 9.5px; color: var(--accent2); }
+    .cta-box__right { text-align: center; flex-shrink: 0; }
+    .cta-box__url {
+      background: var(--accent);
+      color: var(--green-dark);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .cta-box__hint { font-size: 9px; color: rgba(255,255,255,0.5); }
+
+    /* ── EXAMPLE CARD ── */
+    .example-card { }
+    .example-card .tag {
+      display: inline-block;
+      background: var(--green-light);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 12px;
+      margin-bottom: 6px;
+    }
+    .example-card h4 { font-family: 'Outfit', sans-serif; font-size: 12px; font-weight: 800; color: var(--green-dark); margin-bottom: 3px; }
+    .example-card .host { font-size: 9.5px; color: var(--muted); margin-bottom: 6px; }
+    .example-card .meta-row { display: flex; gap: 10px; margin-bottom: 6px; }
+    .example-card .meta-item { background: #fff; border: 1px solid var(--border); border-radius: 5px; padding: 4px 8px; text-align: center; flex: 1; }
+    .example-card .meta-item .val { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 12px; color: var(--green-dark); display: block; }
+    .example-card .meta-item .lbl { font-size: 8.5px; color: var(--muted); }
+    .example-card .prize { font-size: 9.5px; color: var(--green-light); font-weight: 600; margin-bottom: 6px; }
+    .progress-bar { background: var(--border); border-radius: 4px; height: 5px; overflow: hidden; margin: 3px 0 2px; }
+    .progress-fill { background: var(--green-light); height: 100%; border-radius: 4px; width: 45%; }
+    .progress-label { display: flex; justify-content: space-between; font-size: 8.5px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- HEADER -->
+    <div class="header">
+      <div class="header__logo">Trivi<span>FC</span></div>
+      <div class="header__tagline">
+        <strong>Football Foundation Fundraising, Reimagined</strong>
+        Fans compete. Foundations thrive. Every entry fee goes straight to your community projects.
+      </div>
+      <div class="header__badge">⚽ Now Onboarding UK Foundations</div>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats">
+      <div class="stats__item">
+        <span class="stats__num">£85,000+</span>
+        <span class="stats__label">raised by foundations</span>
+      </div>
+      <div class="stats__item">
+        <span class="stats__num">520+</span>
+        <span class="stats__label">tournaments run</span>
+      </div>
+      <div class="stats__item">
+        <span class="stats__num">32</span>
+        <span class="stats__label">club foundations</span>
+      </div>
+      <div class="stats__item">
+        <span class="stats__num">4.8★</span>
+        <span class="stats__label">avg foundation rating</span>
+      </div>
+    </div>
+
+    <!-- ROW 1: How It Works + Why Trivia -->
+    <div class="two-col">
+
+      <!-- How It Works -->
+      <div class="card">
+        <p class="section-label">Simple by design</p>
+        <p class="section-title">How It Works</p>
+        <div class="hiw">
+          <div class="hiw__step">
+            <div class="hiw__num">1</div>
+            <div>
+              <h4>Set Up a Trivia Tournament</h4>
+              <p>Your foundation picks a category — club legends, match history, Premier League knowledge — and chooses a prize fans will compete for: a signed shirt, match tickets, or a stadium tour.</p>
+            </div>
+          </div>
+          <div class="hiw__step">
+            <div class="hiw__num">2</div>
+            <div>
+              <h4>Your Fans Enter</h4>
+              <p>Share the trivia link (or QR code) through social channels and supporter groups. Fans pay a small entry fee, play the game, and battle up the live leaderboard.</p>
+            </div>
+          </div>
+          <div class="hiw__step">
+            <div class="hiw__num">3</div>
+            <div>
+              <h4>Community Wins</h4>
+              <p>The top scorer wins the club-chosen prize. Every entry fee goes directly to your foundation and community projects. Fans get a brilliant experience — your cause gets the funding.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Why Trivia -->
+      <div class="card">
+        <p class="section-label">The smart fundraising choice</p>
+        <p class="section-title">Why Trivia?</p>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div class="why-item">
+            <div class="why-icon why-icon--orange">❤️</div>
+            <div>
+              <h4>Fans Love to Compete</h4>
+              <p>Football supporters are passionate and competitive. A club-themed trivia tournament channels that energy into fundraising — they give because they want to win.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon why-icon--blue">🔗</div>
+            <div>
+              <h4>Spreads Through Fan Networks</h4>
+              <p>Tournaments spread organically through supporter groups, club socials, and WhatsApp threads. More entries, more money, more community impact.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon why-icon--green">🏅</div>
+            <div>
+              <h4>Club-Chosen Prizes</h4>
+              <p>Signed shirts, tickets, meet-and-greets, unique experiences — prizes only your club can offer, so fans can't get them anywhere else.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon why-icon--purple">💷</div>
+            <div>
+              <h4>Fully Transparent Fundraising</h4>
+              <p>Every entry fee (minus a small management fee) goes directly to your foundation. Secure payments, funds released when the tournament closes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROW 2: Example Card + Testimonials -->
+    <div class="two-col">
+
+      <!-- Example Card -->
+      <div class="card example-card">
+        <p class="section-label">See it in action</p>
+        <p class="section-title">What Your Fans Will See</p>
+        <span class="tag">⚽ Club Legends Trivia</span>
+        <h4>Manchester City FC: Legends Quiz</h4>
+        <p class="host">Hosted by <strong>Man City FC Foundation</strong> · Supporting community youth projects</p>
+        <p class="prize">🏅 Prize: Signed First-Team Shirt</p>
+        <div class="meta-row">
+          <div class="meta-item"><span class="val">£5</span><span class="lbl">Entry fee</span></div>
+          <div class="meta-item"><span class="val">20</span><span class="lbl">Questions</span></div>
+          <div class="meta-item"><span class="val">10 days</span><span class="lbl">Closes in</span></div>
+        </div>
+        <div class="progress-label">
+          <span><strong>68</strong> entries</span><span>Goal: 150</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill"></div></div>
+        <p style="font-size:9px;color:var(--green-light);font-weight:600;margin-bottom:6px;">£340 raised for community projects so far</p>
+        <p style="font-size:9px;color:var(--muted);font-style:italic;background:var(--bg-soft);border-radius:5px;padding:7px 10px;border-left:3px solid var(--accent);">"Which Manchester City player scored the title-winning goal in the final seconds of the 2011–12 season?"<br/><span style="color:var(--green-light);font-style:normal;font-weight:600;margin-top:3px;display:block;">B. Sergio Agüero ✓</span></p>
+        <div style="margin-top:6px;display:flex;flex-direction:column;gap:4px;">
+          <div style="display:flex;gap:6px;align-items:center;font-size:9.5px;color:var(--muted);">
+            <span style="color:var(--green-light);">📊</span> Live leaderboard — fans see their ranking in real time
+          </div>
+          <div style="display:flex;gap:6px;align-items:center;font-size:9.5px;color:var(--muted);">
+            <span style="color:var(--green-light);">📱</span> Fully mobile-optimised — enter &amp; share from any phone, no app needed
+          </div>
+          <div style="display:flex;gap:6px;align-items:center;font-size:9.5px;color:var(--muted);">
+            <span style="color:var(--green-light);">🔒</span> Secure payments — funds released directly to your foundation
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonials -->
+      <div class="card card--dark">
+        <p class="section-label">Foundations who've been there</p>
+        <p class="section-title">What Foundations Say</p>
+        <div class="testimonial">
+          <div class="testimonial__stars">★★★★★</div>
+          <p class="testimonial__quote">"The entries just kept rolling in and the WhatsApp groups were going mental. Easily the best thing we've done for fundraising."</p>
+          <p class="testimonial__author"><strong>Dan H.</strong> · Partnerships Manager, North West Club Foundation</p>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial__stars">★★★★★</div>
+          <p class="testimonial__quote">"We raised more in a couple of weeks for our schools programme than our last fundraiser managed in months. People actually wanted to take part."</p>
+          <p class="testimonial__author"><strong>Priya M.</strong> · Community Manager, Midlands Club Foundation</p>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial__stars">★★★★★</div>
+          <p class="testimonial__quote">"Using a signed shirt as the prize was the right call. Fans went after it way harder than a cash prize because it's something only we can give them."</p>
+          <p class="testimonial__author"><strong>James R.</strong> · Foundation Director, Southern Premier League Club</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-box">
+      <div>
+        <p class="cta-box__title">Bring the Quiz to <span>Your Club</span></p>
+        <p class="cta-box__sub">TriviFC is opening its doors to UK football club foundations. Register your interest and we'll be in touch.</p>
+        <ul class="cta-box__perks">
+          <li>✓ Priority onboarding when we launch</li>
+          <li>✓ Free first tournament setup (worth £25)</li>
+          <li>✓ Dedicated foundation support team</li>
+        </ul>
+      </div>
+      <div class="cta-box__right">
+        <span class="cta-box__url">trivifc.com/foundations</span>
+        <p class="cta-box__hint">Register your interest · Early access now open</p>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
